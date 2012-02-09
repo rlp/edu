@@ -29,9 +29,7 @@
 
 		echo $this->Html->css('cake.generic');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+		echo $scripts_for_layout;
 	?>
 </head>
 <body>
@@ -43,7 +41,8 @@
 
 			<?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
+			<?php echo $content_for_layout; ?>
+
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(

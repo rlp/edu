@@ -183,11 +183,11 @@
 
 /**
  * A random string used in security hashing methods.
- */	Configure::write('Security.salt', '65e0fb0a1dd98867cdea379afaae6157a8fd43e9');
+ */	Configure::write('Security.salt', '81385f03b012dd248f5f2811f67b962a6ce8b850');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
- */	Configure::write('Security.cipherSeed', '333739356565653237313639343633');
+ */	Configure::write('Security.cipherSeed', '356664386663326231326462313262');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -306,16 +306,13 @@ if (Configure::read('debug') >= 1) {
 	$duration = '+10 seconds';
 }
 
-// Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
-
 /**
  * Configure the cache used for general framework caching.  Path information,
  * object listings, and translation cache files are stored with this configuration.
  */
 Cache::config('_cake_core_', array(
 	'engine' => $engine,
-	'prefix' => $prefix . 'cake_core_',
+	'prefix' => 'cake_core_',
 	'path' => CACHE . 'persistent' . DS,
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
@@ -327,7 +324,7 @@ Cache::config('_cake_core_', array(
  */
 Cache::config('_cake_model_', array(
 	'engine' => $engine,
-	'prefix' => $prefix . 'cake_model_',
+	'prefix' => 'cake_model_',
 	'path' => CACHE . 'models' . DS,
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
