@@ -1,0 +1,21 @@
+tmp/cache/models/*
+tmp/cache/persistent/*
+tmp/cache/views/*
+tmp/logs/*
+tmp/tests/*
+nbproject
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+:2e_*
+.AppleDouble
+*.tmproj
+.project
+webrat.log
+.buildpath
+.settings
+
+# configuration files
+Config/database.php
+Config/core.php
