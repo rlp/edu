@@ -31,4 +31,72 @@ App::uses('Controller', 'Controller');
  * @package       app.Controller
  */
 class AppController extends Controller {
+/**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array(
+		'Session',
+		'Cookie',
+		'Email',
+		'Auth',
+	);
+/**
+ * Helpers
+ *
+ * @var array
+ */
+	public $helpers = array(
+		'Session',
+		'Html',
+		'Js',
+		'Form',
+	);
+	public $publicControllers = array('pages');
+
+/**
+ * Constructor
+ *
+ * @param mixed $request
+ * @param mixed $response 
+ */
+	public function __construct($request = null, $response = null) {
+		parent::__construct($request, $response);
+		if (Configure::read('debug')) {
+			$this->components[] = 'DebugKit.Toolbar';
+		}
+	}
+/**
+ * beforeFilter
+ * 
+ */
+	public function beforeFilter() {
+		$this->Auth->authenticate = array(
+			'Form' => array(
+				'userModel' => 'User',
+				'fields' => array(
+					'username' => 'email',
+				),
+				'scope' => array('User.email_verified' => 1),
+			)
+		);
+		if (in_array(strtolower($this->params['controller']), $this->publicControllers)) {
+            $this->Auth->allow('*');
+        }
+	}
+/**
+ * isAuthorized
+ *
+ * @return boolean
+ */
+	public function isAuthorized() {
+		if ($this->Auth->user() && $this->params['prefix'] != 'admin') {
+			return true;
+		}
+		if ($this->params['prefix'] == 'admin' && $this->Auth->user('is_admin')) {
+			return true;
+		}
+		return false;
+	}
 }
