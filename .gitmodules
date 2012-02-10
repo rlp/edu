@@ -13,3 +13,6 @@
 [submodule "Plugin/users"]
 	path = Plugin/users
 	url = https://github.com/CakeDC/users.git
+[submodule "Plugin/search"]
+	path = Plugin/search
+	url = https://github.com/CakeDC/search.git
