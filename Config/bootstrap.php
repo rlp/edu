@@ -68,4 +68,5 @@ CakePlugin::load('Migrations');
 CakePlugin::load('Users');
 CakePlugin::load('Tags');
 CakePlugin::load('Utils');
+CakePlugin::load('Search');
 
