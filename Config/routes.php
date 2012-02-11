@@ -27,12 +27,17 @@
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 /**
+ * Routes for the AppUsers extensions of Users plugin. app_users isn't as pretty as users
+ */
+	Router::connect('/users', array('plugin' => null, 'controller' => 'AppUsers'));
+	Router::connect('/users/:action/*', array('plugin' => null, 'controller' => 'AppUsers', 'action' => 'index'));
+/**
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
- * Load all plugin routes.  See the CakePlugin documentation on
+ * Load all plugin routes.  See the CakePlugin documentation on 
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
