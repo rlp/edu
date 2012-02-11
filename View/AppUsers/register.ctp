@@ -43,8 +43,4 @@
 		?>
 	</fieldset>
 </div>
-<div class="actions">
-	<ul>
-		<li><?php echo $this->Html->link(__d('users', 'List Users', true), array('action'=>'index'));?></li>
-	</ul>
-</div>
+<?php echo $this->element('AppUsers/sidebar'); ?>

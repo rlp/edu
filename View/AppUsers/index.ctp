@@ -57,8 +57,4 @@
 		<?php echo $this->Paginator->next(__d('users', 'next') . ' >>', array(), null, array('class' => 'disabled')); ?>
 	</div>
 </div>
-<div class="actions">
-	<ul>
-		<li><?php echo $this->Html->link(__d('users', 'Register an account'), array('action' => 'register')); ?></li>
-	</ul>
-</div>
+<?php echo $this->element('AppUsers/sidebar'); ?>

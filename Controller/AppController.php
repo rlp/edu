@@ -72,15 +72,6 @@ class AppController extends Controller {
  * 
  */
 	public function beforeFilter() {
-		$this->Auth->authenticate = array(
-			'Form' => array(
-				'userModel' => 'User',
-				'fields' => array(
-					'username' => 'email',
-				),
-				'scope' => array('User.email_verified' => 1),
-			)
-		);
 		if (in_array(strtolower($this->params['controller']), $this->publicControllers)) {
             $this->Auth->allow('*');
         }

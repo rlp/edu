@@ -6,7 +6,7 @@ class AppUsersController extends UsersController {
 	
 	public function __construct($request = null, $response = null) {
 		parent::__construct($request, $response);
-		$this->User = ClassRegistry::init('AppUser');
+		$this->User = ClassRegistry::init('User');
 	}
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -100,7 +100,7 @@ class AppUsersController extends UsersController {
  * @param string $to Receiver email address
  * @param array $options EmailComponent options
  * @return boolean Success
- */
+ *
 	protected function _sendVerificationEmail($to = null, $options = array()) {
 		$defaults = array(
 			'from' => 'noreply@' . env('HTTP_HOST'),
@@ -141,7 +141,7 @@ class AppUsersController extends UsersController {
  *
  * @param string $type Type
  * @return void
- */
+ *
 	public function verify($type = 'email', $token = null) {
 		$verifyTypes = array('email', 'reset');
 		if (!$token || !in_array($type, $verifyTypes)) {
@@ -192,4 +192,35 @@ class AppUsersController extends UsersController {
 		$this->redirect('/');
 	}
 
+/**
+ * Setup Authentication Component
+ * (overridden to change the loginAction)
+ *
+ * @return void
+ */
+	public function _setupAuth() {
+		$this->Auth->allow('add', 'reset', 'verify', 'logout', 'index', 'view', 'reset_password');
+
+		if ($this->request->action == 'register') {
+			$this->Components->disable('Auth');
+		}
+
+		if ($this->request->action == 'login') {
+			$this->Auth->autoRedirect = false;
+		}
+
+		$this->Auth->authenticate = array(
+			'Form' => array(
+				'fields' => array(
+					'username' => 'email',
+					'password' => 'password'),
+				'userModel' => 'User',
+				'scope' => array(
+					'User.active' => 1)));
+
+		$this->Auth->loginRedirect = '/';
+		$this->Auth->logoutRedirect = '/';
+		$this->Auth->loginAction = array('admin' => false, 'plugin' => false, 'controller' => 'AppUsers', 'action' => 'login');
+	}
+/* */
 }

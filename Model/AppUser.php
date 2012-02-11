@@ -3,6 +3,7 @@ App::import('Model', 'Users.User');
 class AppUser extends User {
     public $useTable = 'users';
 	public $alias = 'User';
+	public $name = 'User';
 	public function beforeSave() {
 		return true;
 	}
@@ -24,7 +25,7 @@ class AppUser extends User {
 		$data = false;
 		$match = $this->find('first', array(
 			'conditions' => array($this->alias . '.email_token' => $token),
-			'fields' => array('id', 'username', 'email', 'email_token_expiry', 'role')
+			'fields' => array('id', 'username', 'email', 'email_token_expires', 'role')
 		));
 
 		if (!empty($match)) {
