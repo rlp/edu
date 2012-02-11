@@ -13,10 +13,15 @@
 * [CakeDC migrations][]
 * [CakeDC users][]
 * [CakeDC utils][]
+* [CakeDC tags][]
+* [CakeDC search][]
+
 [CakePHP Debug Kit]: https://github.com/cakephp/debug_kit.git
 [CakeDC users]: https://github.com/CakeDC/users.git
 [CakeDC migrations]: https://github.com/CakeDC/migrations.git
 [CakeDC utils]: https://github.com/CakeDC/utils.git
+[CakeDC tags]: https://github.com/CakeDC/tags.git
+[CakeDC search]: https://github.com/CakeDC/search.git
 
 ## Extending the users plugin ##
 
