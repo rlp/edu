@@ -7,12 +7,12 @@
 [submodule "Plugin/utils"]
 	path = Plugin/utils
 	url = git://github.com/CakeDC/utils.git
-[submodule "Plugin/tags"]
-	path = Plugin/tags
-	url = https://github.com/CakeDC/tags.git
 [submodule "Plugin/users"]
 	path = Plugin/users
 	url = https://github.com/CakeDC/users.git
 [submodule "Plugin/search"]
 	path = Plugin/search
 	url = https://github.com/CakeDC/search.git
+[submodule "Plugin/tags"]
+	path = Plugin/tags
+	url = git@github.com:neterslandreau/tags.git
