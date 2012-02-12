@@ -6,7 +6,7 @@ class AppUsersController extends UsersController {
 	
 	public function __construct($request = null, $response = null) {
 		parent::__construct($request, $response);
-		$this->User = ClassRegistry::init('User');
+		$this->User = ClassRegistry::init('AppUser');
 	}
 	public function beforeFilter() {
 		parent::beforeFilter();

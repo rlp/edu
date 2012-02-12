@@ -8,6 +8,34 @@ class AppUser extends User {
 		return true;
 	}
 /**
+ * Constructor
+ *
+ * @param string $id ID
+ * @param string $table Table
+ * @param string $ds Datasource
+ */
+	public function __construct($id = false, $table = null, $ds = null) {
+		$this->_setUpBehaviors();
+		parent::__construct($id, $table, $ds);
+	}
+/**
+ * Setup available plugins
+ *
+ * This checks for the existence of certain plugins, and if available, uses them.
+ *
+ * @return void
+ */
+	protected function _setupBehaviors() {
+		if (App::import('Behavior', 'Search.Searchable')) {
+			$this->actsAs[] = 'Search.Searchable';
+		}
+		if (App::import('Behavior', 'Utils.Sluggable')) {
+			$this->actsAs['Utils.Sluggable'] = array(
+				'label' => 'username',
+				'method' => 'multibyteSlug');
+		}
+	}
+/**
  * Validates the user token
  * (overidden to include required username field for sluggable behavior)
  *
