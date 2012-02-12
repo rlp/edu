@@ -23,7 +23,7 @@ This has been fixed in my fork and a pull request has been submitted to CakeDC.)
 [CakeDC users]: https://github.com/CakeDC/users.git
 [CakeDC migrations]: https://github.com/CakeDC/migrations.git
 [CakeDC utils]: https://github.com/CakeDC/utils.git
-[CakeDC tags]: https://github.com/CakeDC/tags.git
+[CakeDC tags]: https://github.com/neterslandreau/tags.git
 [CakeDC search]: https://github.com/CakeDC/search.git
 
 ## Extending the users plugin ##
