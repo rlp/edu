@@ -16,7 +16,7 @@ This has been fixed in my fork and a pull request has been submitted to CakeDC.)
 * [CakeDC migrations][]
 * [CakeDC users][]
 * [CakeDC utils][]
-* [CakeDC tags][]
+* [CakeDC tags][] (forked)
 * [CakeDC search][]
 
 [CakePHP Debug Kit]: https://github.com/cakephp/debug_kit.git
