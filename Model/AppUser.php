@@ -34,6 +34,9 @@ class AppUser extends User {
 				'label' => 'username',
 				'method' => 'multibyteSlug');
 		}
+		if (App::import('Behavior', 'Tags.Taggable')) {
+			$this->actsAs[] = 'Tags.Taggable';
+		}
 	}
 /**
  * Validates the user token
@@ -76,7 +79,28 @@ class AppUser extends User {
 		}
 		return $data;
 	}
+/**
+ * Returns all data about a user
+ *
+ * @param string $slug user slug or the uuid of a user
+ * @return array
+ */
+	public function view($slug = null) {
+		$user = $this->find('first', array(
+			'contain' => array(
+				'UserDetail'),
+			'conditions' => array(
+				'OR' => array(
+					$this->alias . '.slug' => $slug,
+					$this->alias . '.' . $this->primaryKey => $slug),
+				$this->alias . '.active' => 1,
+				$this->alias . '.email_verified' => 1)));
 
+		if (empty($user)) {
+			throw new OutOfBoundsException(__d('users', 'The user does not exist.'));
+		}
+		return $user;
+	}
 /**
  * Updates the last activity field of a user
  *
