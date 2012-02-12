@@ -52,6 +52,7 @@ class AppController extends Controller {
 		'Html',
 		'Js',
 		'Form',
+		'Tags.TagCloud'
 	);
 	public $publicControllers = array('pages');
 
