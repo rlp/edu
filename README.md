@@ -7,6 +7,9 @@
 * create the empty database and Config/database.php
 * execute from /path/to/project/: cake Migrations.migration run all --plugin Users
 * execute from /path/to/project/: cake Migrations.migration run all
+* execute from /path/to/project/: cake Migrations.migration run all --plugin Tags
+(Note about a bug in the Tags plugin: tags/config must be renamed to tags/Config.
+This has been fixed in my fork and a pull request has been submitted to CakeDC.)
 
 ## Included plugins ##
 * [CakePHP Debug Kit][]
