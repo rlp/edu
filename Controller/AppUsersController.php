@@ -7,6 +7,7 @@ class AppUsersController extends UsersController {
 	public function __construct($request = null, $response = null) {
 		parent::__construct($request, $response);
 		$this->User = ClassRegistry::init('AppUser');
+		$this->User->UserDetail = classRegistry::init('AppUserDetail');
 	}
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -86,6 +87,27 @@ class AppUsersController extends UsersController {
 			$this->set('return_to', urldecode($this->params['named']['return_to']));
 		} else {
 			$this->set('return_to', false);
+		}
+	}
+/**
+ * Edit
+ * (overridden due to ugly UserDetail concept)
+ *
+ * @param string $id User ID
+ * @return void
+ */
+	public function edit() {
+		if (!empty($this->request->data)) {
+			if ($this->User->UserDetail->saveSection($this->Auth->user('id'), $this->request->data, 'User')) {
+				$this->Session->setFlash(__d('users', 'Profile saved.'));
+			} else {
+				$this->Session->setFlash(__d('users', 'Could not save your profile.'));
+			}
+		} else {
+			$data = $this->User->view($this->Auth->user('slug'));
+			$this->request->data = $data['UserDetail'];
+//debug($this->request->data);
+//			$this->request->data['UserDetail'] = $data['User'];
 		}
 	}
 
