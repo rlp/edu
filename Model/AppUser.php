@@ -34,6 +34,9 @@ class AppUser extends User {
 				'label' => 'username',
 				'method' => 'multibyteSlug');
 		}
+		if (App::import('Behavior', 'Tags.Taggable')) {
+			$this->actsAs[] = 'Tags.Taggable';
+		}
 	}
 /**
  * Validates the user token
