@@ -3,6 +3,9 @@ tmp/cache/persistent/*
 tmp/cache/views/*
 tmp/logs/*
 tmp/tests/*
+webroot/.htaccess
+
+
 nbproject
 .DS_Store
 Thumbs.db
