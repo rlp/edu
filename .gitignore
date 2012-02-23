@@ -3,6 +3,7 @@ tmp/cache/persistent/*
 tmp/cache/views/*
 tmp/logs/*
 tmp/tests/*
+tmp/*
 webroot/.htaccess
 
 
