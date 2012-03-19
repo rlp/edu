@@ -1,18 +1,18 @@
 [submodule "Plugin/debug_kit"]
 	path = Plugin/debug_kit
-	url = https://github.com/cakephp/debug_kit.git
+	url = http://github.com/cakephp/debug_kit.git
 [submodule "Plugin/migrations"]
 	path = Plugin/migrations
-	url = https://github.com/CakeDC/migrations.git
+	url = http://github.com/CakeDC/migrations.git
 [submodule "Plugin/utils"]
 	path = Plugin/utils
 	url = git://github.com/CakeDC/utils.git
 [submodule "Plugin/users"]
 	path = Plugin/users
-	url = https://github.com/CakeDC/users.git
+	url = http://github.com/CakeDC/users.git
 [submodule "Plugin/search"]
 	path = Plugin/search
-	url = https://github.com/CakeDC/search.git
+	url = http://github.com/CakeDC/search.git
 [submodule "Plugin/tags"]
 	path = Plugin/tags
 	url = git@github.com:neterslandreau/tags.git
